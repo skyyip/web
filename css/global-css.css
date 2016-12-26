@@ -1,0 +1,602 @@
+http://tympanus.net/codrops/2013/07/17/troubleshooting-css/
+
+	
+/*完全没有必要用@font-face加载微软雅黑，win7本来就已经标配了雅黑，在xp下，对于14px及以下大小的字体，用宋体和雅黑在视觉上差别不大，对于14px以上的字体，则可以用黑体替代。使用@font-face的话，字体文件太大，基本上是画蛇添足，为了一点点效果去牺牲整个网站的访问体验，非常得不偿失。*/
+
+
+/*android autofit mode causing issues with css width in web page*/
+* { background-image: url("/image/pixel.png");} /*(where pixel.png is a 1x1 transparent PNG).*/
+
+/*nice fonts*/
+body{font-family: "Open Sans",Arial,sans-serif;}
+
+body {
+	font-family: 'Microsoft JhengHei', 'Microsoft YaHei', Helmet, Freesans, sans-serif;
+}
+
+
+/*for chi*/
+body, input, textarea{ font-family:"Microsoft JhengHei", Arial, Verdana, sans-serif;}
+body{ font-family:'Microsoft YaHei';}
+
+a:hover img{
+border:1px solid #000;
+}
+
+/*Force text to wrap*/
+table {
+table-layout: fixed;
+word-wrap:break-word;
+overflow:hidden;
+}
+div {
+word-wrap:break-word;
+overflow:hidden;
+}
+
+/*Styling different link types*/
+a[href$='.pdf']{}
+a[href^='#']{}
+
+/* Add " (PDF)" text after links that go to PDFs */
+a[href$=".pdf"]:after { content: " (PDF)"; }
+
+/* If file size specified as data attribute, use that too */
+/*<a href="some.pdf" data-size="2 MB">PDF bomb</a>*/
+a[href$=".pdf"][data-size]:after { content: " (PDF, " attr(data-size) ")"; }
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+/*100% img bg*/
+/*
+<body>
+<img src="img/kissy.png" class="kissy">
+*/
+img.kissy {
+    width: 100%;	
+    height: auto;
+	position: absolute;
+    left: 0;
+    top: 0;	
+    min-width: 1024px;	
+    min-height: 100%;
+    z-index: -1000;
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
+
+/*for mobile
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+and Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you*/
+html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+
+
+/*clearfix*/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+} 
+.clearfix:after {
+    clear: both;
+} 
+/* IE6/7 support */
+.clearfix {
+    *zoom: 1;
+}
+
+
+/*Setting display: none hides content for screen readers and search engine bots. This is the difference that really matters. When you’re making tabs or playing with slideToggle(), don’t hide the content with display: none because you will make it unavailable for both, screen readers and search bots. Instead give it the previous class.*/
+.visuallyhidden {
+    position: absolute;
+    width: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    height: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;   
+}
+
+
+/*While we are talking about hiding stuff, let’s deal with image replacement. We all know what image replacement is:
+
+    Take an element
+    Give it a background-image
+    Hide the text
+
+Some of you have probably done this with position: absolute; left: -9999px; since the dawn of time. Yes, it works. But it’s incredibly heavy for the browser to create a 10000px box, so here is a “new” way of doing it by Scott Kellum:*/
+.ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*When you look at the code, this is incredibly clever. It only moves the text out of the box. Nothing more, nothing less.*/
+
+
+/*word break*/
+.break {
+    -ms-word-break: break-all;
+    word-break: break-all; 
+    word-break: break-word;
+ 
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
+/* how to make long strings break in <pre> tags.*/
+pre {
+    white-space: pre-wrap;       /* Chrome & Safari */
+    white-space: -moz-pre-wrap;  /* Mozilla since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+pre {
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
+}
+
+/*table border*/
+table{ border-top: #000 1px solid; border-left: #000 1px solid;}
+table1 td { border-right: #000 1px solid; border-bottom: #000 1px solid;}
+
+
+/* css3 */
+.demo{
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+h2{ text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;}
+
+/* 
+ * rotation
+ */
+ul#stickies li:nth-child(even) {
+	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-o-transform: rotate(2deg);
+	-ms-transform: rotate(2deg);
+	transform: rotate(2deg);
+}
+
+ul#stickies li:nth-child(odd) {
+	-webkit-transform: rotate(-1deg);
+	-moz-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg);
+	-ms-transform: rotate(-1deg);
+	transform: rotate(-1deg);
+}
+
+ul#stickies li:nth-child(3n) {
+	-webkit-transform: rotate(1deg);
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	transform: rotate(1deg);
+}
+
+/* 
+   Transform demo 
+   Uses the transition (defined above) to ease in.
+*/
+ul#stickies li:hover {
+	-webkit-box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+	-webkit-transform: rotate(0deg) scale(1.25);
+	-moz-transform: rotate(0deg) scale(1.25);
+	-o-transform: rotate(0deg) scale(1.25);
+	-ms-transform: rotate(0deg) scale(1.25);
+	transform: rotate(0deg) scale(1.25);
+	z-index: 10;
+}
+
+
+/*http://www.fontsquirrel.com/tools/webfont-generator*/
+@font-face {
+    font-weight: normal;
+    font-style: normal;	
+	font-family: 'MyWebFont';
+	src: url('webfont.eot'); /* IE9 Compat Modes */
+	src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('webfont.woff') format('woff'), /* Modern Browsers */
+	     url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+/* best way to work even ie 8*/
+@font-face {
+  font-family: 'Graublau Web';
+  src: url('GraublauWeb.eot?') format('eot'), url('GraublauWeb.woff') format('woff'), url('GraublauWeb.ttf') format('truetype');
+}
+
+/*How to define bold, italic using @font-face*/
+@font-face {
+    font-family: "DejaVu Sans";
+    src: url("fonts/DejaVuSans-Bold.ttf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "DejaVu Sans";
+    src: url("fonts/DejaVuSans-Oblique.ttf");
+    font-style: italic, oblique;
+}
+
+/*
+Ref: 
+http://www.google.com/get/noto/#/family/noto-sans-hant
+https://code.google.com/p/noto/
+http://www.google.com/get/noto/#/family/noto-sans-hant
+*/
+font-family: "Noto Sans T Chinese Regular";
+
+ 
+/* iPhone / mobile webkit 
+   http://www.chinaz.com/manage/2011/1122/221855.shtml
+   http://www.chinaz.com/manage/2011/1121/221607_2.shtml
+*/
+/*
+   iPhone:320x480  iPad:768x1024
+*/
+/*當瀏覽器可視部分寬度小於480px時,480px也就是iPhone橫屏時的寬度*/
+@media screen and (max-device-width: 480px) {
+ #veintiseis { color: red  }
+}
+
+/*使用下面的代碼，在桌面瀏覽器上，當你改變窗口尺寸到達480 像素的時候，就會看到佈局的改變。需要注意的是，上面的max-width 部分僅僅為了測試，如果你不希望用戶在桌面瀏覽器中因為改變了窗口大小而導致你的佈局改變，可以去掉max-width 部分，而只針對那些移動設備。*/ 
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+} 
+
+/*可以看出min-width和max-width可以同时判断设备屏幕尺寸与浏览器实际宽度。有些时候，我们希望通过media queries作用于某种特定的设备，而忽略其上运行的浏览器是否由于没有最大化而在尺寸上与设备屏幕尺寸产生不一致的情况。这时，我们需要使用min-device-width与max-device-width，用来判断设备本身的屏幕尺寸。*/
+@media screen and (max-device-width: 480px) {
+
+}
+
+/*我们还可以将上述属性组合使用，来锁定某个屏幕尺寸范围：
+  浏览器窗口或屏幕宽度在800px至1200px之间的所有设备。
+*/
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+
+}
+
+
+/*CSS-tricks.com gave us this amazing snippet:*/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+/* Styles */
+}
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+/* Styles */
+}
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+
+
+/* Media - Fluid Images - Video 
+============================================================================================== */
+figure {margin: 0}
+img, object, embed, video {max-width: 100%;	_width: 100%} /* Fluid images */
+img {border: 0;	-ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
+svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
+img {height: auto;}
+
+/*Responsive Web Design for Menu, Image and Advertisements*/
+/*Images
+<div class="responsive-img">
+   <img src="image.jpg" />
+</div>
+*/
+.responsive-img { width: 100%;clear: both;}
+.responsive-img img{ max-width: 100%; max-height: 100%; }
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.video embed,
+.video object,
+.video iframe {
+    width: 100%;
+    height: auto;
+}
+
+
+/************************************************************************************
+VIDEO
+*************************************************************************************/
+/*html
+	<div class="video-container">
+		<iframe width="853" height="510" src="http://www.youtube.com/embed/3R2cnxz27LI" frameborder="0" allowfullscreen></iframe>
+	</div>
+*/
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/*png fadeIn in ie7/8*/
+.item img {
+	background: transparent;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */   
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */      
+	zoom: 1;
+
+}
+
+/*height: 100% when the parent element doesn't have a height assigned but a min-height. I won't go too deep into the article but summarized, you may need to add a height of 1px to the parent element so the child can expand all the way to the min-height.*/
+.parent {
+  min-height: 300px;
+  height: 1px; /* Required to make the child 100% of the min-height */
+}
+ 
+.child {
+  height: 100%;
+}
+
+
+/*Webkit text aliasing gets weird during CSS3 animations*/
+body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
+	-webkit-backface-visibility: hidden;
+}
+
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+
+line-height: 1.5
+line-height: 150%
+/*line-height: 1.5 (without units) will mutiply the element's font size by 1.5 to compute the line height.
+line-height: 150% will take 150% of the element's computed font size to compute the line height, which is equivalent to multiply it by 1.5.*/
+
+/* Useful box shadow setting */
+.box{ box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);}
+
+
+/* :bofore and after  http://krasimirtsonev.com/blog/article/CSS-before-and-after-pseudo-elements-in-practice 
+:: 為 CSS3 擬元素的標準表示法，主要是為了與 : 的擬類別 (Pseudo-classes) 作區分，有別於原來 css2 兩者同樣使用 : 表示，目前較先進瀏覽器 (firefox, opera, safari, …) 均有支援。
+以 ::before, ::after 配合 content 所產生的擬元素字串，會視為行內層級元素 (inline emements)，也就是文字層級 (text-level) 。 
+*/
+div:before {
+    content: "";
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 6px 0 0;
+    background: url("icon.jpg") no-repeat;	
+}
+
+a:after {
+    content: "";
+    display: inline-block;
+    background: url("icon-external.jpg") no-repeat top right;
+    width: 14px;
+    height: 12px;
+}
+
+
+/* CSS Vertical Centering
+============================================================================================== */
+.children{
+	background: #ffdb4c;
+	height: 300px;
+	position: relative;
+	top: 50%;
+	transform: 			translateY(-50%);
+}
+<div class="parent">
+  <div class="children">I'm vertically centered!</div>
+</div>
+
+
+/* Create a CSS Flipping Animation
+============================================================================================== */
+http://davidwalsh.name/css-flip
+
+/* Creating Scrolling Parallax Effects with CSS
+============================================================================================== */
+http://davidwalsh.name/parallax
+
+/* Perfect Icons - The easiest way to create resolution independent social icons.
+============================================================================================== */
+http://perfecticons.com/
+
+
+/*
+CSS Triangle
+http://css-tricks.com/snippets/css/css-triangle/
+The idea is a box with zero width and height. The actual width and height of the arrow is determined by the width of the border. In an up arrow, for example, the bottom border is colored while the left and right are transparent, which forms the triangle.
+
+For an equilateral triangle it's worth pointing out that the height is 86.6% of the width so (border-left-width + border-right-width) * 0.866% = border-bottom-width
+
+<div class="arrow-up"></div>
+<div class="arrow-down"></div>
+<div class="arrow-left"></div>
+<div class="arrow-right"></div>
+*/
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	
+	border-bottom: 5px solid black;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	
+	border-top: 20px solid #f00;
+}
+
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 60px solid transparent;
+	border-bottom: 60px solid transparent;
+	
+	border-left: 60px solid green;
+}
+
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	
+	border-right:10px solid blue; 
+}
+
+/*just for inline element, not block element*/
+input{vertical-align:middle;}
+
+
+/*行內型元素本身也可以細分, 其中兩種主要的類別: "被取代的(replaced)" 元素 與 "非被取代的(non replaced)" 元素.
+只有 "被取代的"元素是預設具有[特定]的大小(高度與寬度). 底下這些都是屬於這一類:   <img>, <input>, <textarea>, <select> 與<object>.
+*/
+
+/*1像素细边框的table*/
+#test{border-collapse:collapse;border:1px solid #ddd;}
+#test th,#test td{border:1px solid #ddd;}
+
+<table id="test">
+	<tr><th>姓名</th><td>Joy Du</td></tr>
+	<tr><th>年龄</th><td>26</td></tr>
+</table>
+
+
+1、ease：（逐渐变慢）默认值
+
+2、linear：（匀速）
+
+3、ease-in：(加速)
+
+4、ease-out：（减速）
+
+5、ease-in-out：（加速然后减速）
+
+
+/*background-image: url(data:image/gif;base64,AAAA)
+
+http://base64image.org/
+
+http://zhidao.baidu.com/link?url=3s-wF6meCokjo4YrXGNx71MG305_FtTdNBI8UwpwnpsOgz2AnlLRsMo2t7R51pMdTKGoykeKjoYjUMPwLxictK
+
+这算是一种图片路径的新写法。将图片进行编码，然后存在文档中。
+我先解释一下各自含义：
+data: ----获取数据类型名称
+image/gif; -----指数据类型名称
+base64 -----指编码模式
+AAAAA ------指编码以后的结果。
+
+background-image: url(data:image/gif;base64,AAAA)这句话的意思总体就是“获取数据类型是image gif文件，编码采用ASCII 字符，ASCII编码内容是‘AAAA’”
+
+我知道你清楚没。这实际就是一种新写法。原理和以往不同。
+以往的图片路径写法是：
+background-img:url(../image/xxx.gif)
+图片需要加载服务器指定路径下的对应gif文件。
+新写法就是：
+background-image: url(data:image/gif;base64,AAAA)
+图片本身就已经以ASCII的形式存在了文档中，只需要浏览器进行编译就可以了。
+
+新写法将图片写入文档中，可以减少客户端对服务器的请求。
+换句话讲，原来我们要加载图片，是从服务器下载。
+现在浏览器直接把那一串ASCII按照你的文件类型进行编译就可以出来结果了。
+
+但是也会有问题
+ie8貌似不兼容。
+具体LZ可以再研究研究*/
+
+
+
+
+
+

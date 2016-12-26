@@ -1,0 +1,415 @@
+Responsive websites use the meta viewport tag to tell browsers: "Hey, render at the device width and don't scale please."
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+While the user no longer needs to zoom & pan they still have this ability should they desire it. It can effectively be disabled with the meta tag:
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!--always set document mode:ie9 in ie9-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--This would be a good approach to keep the old web from breaking apart, to render document as IE7 properly in IE8.-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<!-- http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e
+    IE=edge means IE should use the latest (edge) version of its rendering engine
+    chrome=1 means IE should use the Chrome rendering engine if installed-->
+<!--When using the tag <meta http-equiv="X-UA-Compatible" content="IE=Edge"> you will not be able to validate the page successfully. I would say to ignore this but if you must have page validation change the > to /> and it will validate without issue and still work. -->    
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+When using <meta http-equiv="X-UA-Compatible" content="IE=Edge"> the page will not validate using the W3 Validator. It will throw the error: Bad value X-UA-Compatible for attribute http-equiv on element meta. Frankly I ignore this error completely as modern browsers simply ignore this line of code and only IE does anything with it.
+
+If you must have completely valid code then consider doing this on the server level. See olibre's answer or bitinn's answer for more details on how to do this.
+
+
+
+<!--Shield the tel no. in mobile and the browser bar-->
+<meta name="viewport" content="width=device-width">
+<!--將網站的視窗寬度設置成何設備一致-->
+<!--默認情況下，iPhone中的Safari瀏覽器會對頁面進行自動縮放，以適應屏幕尺寸。我們可以使用以下的meta設置，將設備的默認寬度作為頁面在Safari的可視部分寬度，並禁止初始化縮放。
+禁用iPhone中的圖片自動縮放:
+在iPhone及iPod Touch中，頁面會被自動的同比例縮小至最適合屏幕大小的尺寸，x軸不會產生滾動條，用戶可以上下拖拽瀏覽全部頁面，或在需要的時候放大頁面的局部。這裡會產生一個問題，即使我們運用響應式Web設計的思想，專門為iPhone的小屏輸出小圖片，它同樣會隨著整個頁面一起被同比例縮小
+-->
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta name="format-detetion" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="shortcut icon" href="http://netdna.webdesignerdepot.com/wddfavicon2.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" href="http://netdna.webdesignerdepot.com/wddfavicon.png" /> 
+
+Set iPhone Bookmark Icon
+<link rel="apple-touch-icon" sizes="57x57" href="http://www.lab21.gr/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://www.lab21.gr/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://www.lab21.gr/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="http://www.lab21.gr/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="http://www.lab21.gr/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="http://www.lab21.gr/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="http://www.lab21.gr/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="http://www.lab21.gr/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="http://www.lab21.gr/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="http://www.lab21.gr/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="http://www.lab21.gr/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="http://www.lab21.gr/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="http://www.lab21.gr/favicon-32x32.png" sizes="32x32">
+
+<!-- Iconifier might be helpful for generating favicons and touch icons: http://iconifier.net -->
+<link rel="shortcut icon" href="_/img/favicon.ico" />
+
+<link rel="shortcut icon" type="image/x-icon" href="http://www.lab21.gr/favicon.ico" />
+<!-- This is the traditional favicon.
+     - size: 16x16 or 32x32
+     - transparency is OK -->
+     
+<link rel="apple-touch-icon" href="_/img/apple-touch-icon.png" />
+<!-- The is the icon for iOS's Web Clip and other things.
+     - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for retina display (IMHO, just go ahead and use the biggest one)
+     - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
+     - Transparency is not recommended (iOS will put a black BG behind the icon) -->
+
+
+<!-- Facebook share meta tag -->
+<meta property="og:title" content="Charming聖誕 幸運。賞" />
+<meta property="og:description" content="您今日抽到的聖誕吊飾！" />
+<meta property="og:image" content="http://www.heathergreywall.com/wordpress/wp-content/themes/hgwj/common/img/fb.jpg"/>
+
+<meta property="og:url" content="http://www.heathergreywall.com" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Heather Grey Wall" />
+<meta property="fb:app_id" content="590560884293419" />
+
+
+<!-- Application-specific meta tags -->
+<!-- Windows 8 -->
+<meta name="application-name" content="" /> 
+<meta name="msapplication-TileColor" content="" /> 
+<meta name="msapplication-TileImage" content="" />
+<!-- Twitter -->
+<meta name="twitter:card" content="">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:url" content="">
+<!-- Facebook -->
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+    
+
+<!--Page redirect-->
+<meta http-equiv="refresh" content="0;URL=/en/"> 
+
+<!--How Do I Target IE7 or IE8 Using CSS Hacks-->
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->  
+<!--[if IE 8]>     <html class="ie8"> <![endif]-->  
+<!--[if IE 9]>     <html class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html>             <!--<![endif]--> 
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. --> 
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+   
+              
+
+<!-- SVG --> 
+<!--Dropbox\web\svg\#svgweb( a JavaScript library which provides SVG support on many browsers)-->
+<!-- Floorplan SVG starts here --> 
+<!--[if !IE]>-->
+<object data="/en/svg/floorplan_dining.svg" type="image/svg+xml" width="100%" height="100%" id="floorplanSVG">
+  <!--<![endif]--> 
+  <!--[if lt IE 9]>
+    <object src="/en/svg/floorplan_dining.svg" classid="image/svg+xml" width="100%" height="100%" id="floorplanSVG"><![endif]--> 
+  <!--[if gte IE 9]>
+    <object data="/en/svg/floorplan_dining.svg" type="image/svg+xml" width="100%" height="100%" id="floorplanSVG"><![endif]-->
+</object>
+<!-- Floorplan SVG ends here --> 
+
+
+<!--Video--> 
+<!-- This video element tells the browser to display the default control set, to use a specified poster image which will display before the user plays the video, and to only preload the video's metadata (e.g. video duration)
+NOTE: Internet Explorer 9 and 10 will ignore the poster image if any of the video is loaded. To force these browsers to support the poster image, set preload="none" -->
+<video controls poster="url-to-poster-image.jpg" preload="metadata"> 
+  <!-- Provide multiple video sources for cross-browser support --> 
+  
+  <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+    NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+  <source src="url-to-video.mp4" type="video/mp4" />
+  
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="url-to-video.webm" type="video/webm" />
+  
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="url-to-video.ogg" type="video/ogg" />
+  
+  <!-- Provide a Flash fallbackfor browsers that don't support HTML5 video, e.g. Internet Explorer 6-7.
+    This uses the Google Player to play the MP4 file. Set the height and width attributes to the correct values. -->
+  <object type="application/x-shockwave-flash" data="player.swf?videoUrl=url-to-video.mp4" height="XXX" width="XXX">
+    <param name="movie"	value="player.swf?videoUrl=url-to-video.mp4">
+  </object>
+  
+  <!-- Add a downloadable link for users who do not have a HTML5 video capable browser, nor Flash installed
+    NOTE: This link will be displayed even if the user has Flash installed --> 
+  <a href="url-to-video.mp4">Download MP4 video</a> </video>
+  
+  
+<video width="640" height="360" controls>
+  <source src="__VIDEO__.MP4" type="video/mp4" />
+  <source src="__VIDEO__.OGV" type="video/ogg" />
+  <object width="640" height="360" type="application/x-shockwave-flash" data="__FLASH__.SWF">
+    <param name="movie" value="__FLASH__.SWF" />
+    <param name="flashvars" value="controlbar=over&image=__POSTER__.JPG&file=__VIDEO__.MP4" />
+    <img src="__VIDEO__.JPG" width="640" height="360" alt="__TITLE__" title="No video playback capabilities， please download the video below" />
+  </object>
+</video>
+
+
+
+
+<!--Form-->
+<form method="post" action="" name="contactForm" id="contactForm">
+    <div class="formRow clearfix">
+       <label for="name"><?php __('Name')?><span>*</span></label>
+       <input type="text" id="name" name="name" class="{validate:{required:true}}" /> 
+    </div>
+    <div class="formRow clearfix">
+       <label for="company"><?php __('Company')?><span>*</span></label>
+       <input type="text" id="company" name="company" class="{validate:{required:true}}" /> 
+    </div>
+    <div class="formRow clearfix">
+       <label for="contactNo"><?php __('Contact no.')?><span>*</span></label>
+       <input type="text" id="contactNo" name="contactNo" class="{validate:{required:true}}" /> 
+    </div>
+    <div class="formRow clearfix">
+       <label for="email"><?php __('Email')?><span>*</span></label>
+       <input type="text" id="email" name="email" class="{validate:{required:true,email:true}}" /> 
+    </div>
+    <div class="formRow clearfix">
+       <label for="message"><?php __('Message')?><span>*</span></label>
+       <textarea id="message" name="message" class="{validate:{required:true}}" ></textarea> 
+    </div>                                                                                                                            
+    <div class="formRow">
+        <input type="submit" value="" id="submit"/> 
+    </div>                    
+</form>    
+
+
+<!--img align middle with text--> 
+<img width="36" height="24" align="absmiddle" src="cup_logo.gif">
+
+
+<!--table word break-->
+<table style="table-layout:fixed; width:200px;">
+  <tr>
+    <td style="width:100px">asdasfasf</td>
+    <td style="word-break: break-all; width:100px;">ThisStringWillNotWrapThisStringWillNotWrapThisStringWillNotWrap</td>
+  </tr>
+</table>
+
+<!--This worked best for me (best compatibility across vendors):
+
+<p style="word-break:break-all;">
+    <font style="word-break:break-all;">hxxp://really_long_link</font>
+</p>
+
+Tested on: MS Office 2007/2010, outlook.com, hotmail.com, gmail.com, yahoo.com (yahoo did not display nicely)-->
+
+
+<!--HTML5预读取
+有一个很好的功能叫做预读取，它让浏览器提前下载你马上需要用到的资源：-->
+<link rel="prefetch" href="/images/background.jpg">
+
+
+<!--http://www.quirksmode.org/mobile/viewports.html-->
+
+
+
+<!--ios Voice over:-->
+1. text-indent:-9999px will cause the focus area full width or focus on the left
+- use a tag wrap img
+<a href="javascript:;" class="btnMenu"><img alt="Menu" src="assets/img/btn-menu.png"></a>
+or
+- set title attr for a tag and remove text
+<a href="javascript:;" class="btnMenu" title="Menu"></a>
+
+2. if hv pop up layer, dont use img
+<a href="javascript:;" class="btnMenu"><img alt="Menu" src="assets/img/btn-menu.png"></a>
+use
+<a href="javascript:;" class="btnMenu" title="Menu"></a>
+because this will trigger a tag in the below layer
+
+3. set tabindex="0" to make the element focusable
+<!--MAKING ELEMENTS FOCUSABLE WITH TABINDEX
+http://snook.ca/archives/accessibility_and_usability/elements_focusable_with_tabindex
+
+The tabindex value can allow for some interesting behaviour.
+If given a value of "-1", the element can't be tabbed to but focus can be given to the element programmatically (using element.focus()).
+If given a value of 0, the element can be focused via the keyboard and falls into the tabbing flow of the document.
+Values greater than 0 create a priority level with 1 being the most important.
+-->
+
+ 	
+<!--Scroll IFRAMEs on iOS
+http://davidwalsh.name/scroll-iframes-ios
+The -webkit-overflow-scrolling: touch; property and value were created especially for the case of overflow scrolling within the browser.  Without this the page will scroll when you scroll the IFRAME area; with it you get control of the IFRAME! For my site's case, I use the following:
+-->
+<style type="text/css">
+		.scroll-wrapper {
+			display: inline-block;
+			-webkit-overflow-scrolling: touch;
+  		overflow-y: scroll;
+		}
+		.scroll-wrapper, .scroll-wrapper  {
+			width: 100%;
+			height: 400px;
+		}
+	</style>
+<div class="scroll-wrapper">
+  <iframe src="//davidwalsh.name" border="0" />
+</div>
+
+
+<!--嵌入 Flash-->
+<!--你是否經常需要再 HTML 頁面中嵌入 Flash 文件？如果是的話，你會更好地保存下面的 Flash 嵌入代碼以供將來使用。-->
+<object type="application/x-shockwave-flash"
+  data="your-flash-file.swf"
+  width="0" height="0">
+  <param name="movie" value="your-flash-file.swf" />
+  <param name="quality" value="high"/>
+</object>
+
+
+<!--Crash IE6-->
+<!--在 2013 年，帶給前端開發人員惡夢的 Internet Explorer 6 市場份額已經降了很多了。但一些人仍然在使用它。如果你想擺脫這種舊的瀏覽器，這裡是一個非常有趣的代碼，包括在你的 HTML 頁面，讓 IE6 崩潰。-->
+<style>*{position:relative}</style><table><input></table>
+
+
+<!-- http://post-data-to-an-iframe/ 
+You just have the form's target attribute match the iframe's name attribute.
+-->
+<form action="iframe.php" target="my-iframe" method="post">
+			
+  <label for="text">Some text:</label>
+  <input type="text" name="text" id="text">
+			
+  <input type="submit" value="post">
+			
+</form>
+		
+<iframe name="my-iframe" src="iframe.php"></iframe>
+
+
+<!--Button With Line Breaks-->
+<input type="button" value="Really&#x00A;Tall&#x00A; Button">
+
+
+<!--Base64 Encode of 1x1px Transparent GIF-->
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<!--Or a black one:-->
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
+
+
+<!--custom select box  https://coderwall.com/p/w7npmq/fully-custom-select-box-simple-css-only -->
+<div class="select-style">
+  <select>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</div>
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+
+<!-- Addthis -->
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style" addthis:url="http://example.com" addthis:title="An Example Title" addthis:description="An Example Description"> 
+<a href="#" class="addthis_button_compact">Share</a> 
+</div> 
+<!-- AddThis Button END -->
+
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53786a3207bc5fe6"></script>
+
+
+https://www.mattcutts.com/blog/canonical-link-tag/
+
+
+<!--左圖右字-->
+<style>
+.left-img {
+	float: left;
+	width: 100px;
+}
+.right-txt {
+	overflow: hidden;
+}
+</style>
+<ul>
+  <li class="clearfix">
+   <a class="left-img" href="#">sdfds</a>
+   <div class="right-txt">
+     <h3><a href="#">This is title</a></h3>
+     <p>This is content</p>
+   </div>
+  </li>
+</ul>
+
+<!-- Search location with google map -->
+<form action="http://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Enter your location</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="350 5th Ave New York, NY 10018 (Empire State Building)" />
+   <input type="submit" value="Get directions" />
+</form>
+
+
+
+Use Data URIs  --http://blog.teamtreehouse.com/using-data-uris-speed-website
+Making fewer HTTP requests ultimately means your web page will load faster as the browser does not have to load as many files. Aside from actually downloading the file, it takes time for the browser to establish a connection with the server for each HTTP request that's made. Using data URIs eliminates this overhead.
+
+It's worth noting that the size of the data URI string is often around a third larger than the size of the original binary file. This means that you'll be downloading a larger amount of data overall, but it will be compressed into a single file, with a single HTTP request. That's OK, as it's often quicker to download a large amount of data on a single connection than it is to download the same amount of data using multiple connections (due to the request overhead we spoke about earlier).
+
+A drawback of using data URIs is that they're "not cached by the browser". As a result, the browser will have to decode the data URIs each time the page is loaded, consuming precious system resources. Mobile browsers can be slow to decode data URIs, so you need to weigh-up the network saving against the time taken to decode the images. If you're using a lot of data URIs in your website, make sure that you test in a variety of mobile browsers to check that this doesn't have a negative impact on performance.
+
+
+https://www.wonderplugin.com/wordpress-video-gallery/one-mp4-format-to-play-in-all-web-browsers-and-devices/
+
+
+
+
+
+
+
+
+
+
+
