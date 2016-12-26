@@ -107,6 +107,7 @@ var __urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&
 var __imgRegex = /\.(?:jpe?g|gif|png)$/i;	
 
 
+
 Undefined,null的区别
 
 undefined 表示一个变量没有被定义，或者定义了没有赋值。
