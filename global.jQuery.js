@@ -1,4 +1,3 @@
-var d = document;
 var l=location.href;
 var f=l.substring(l.lastIndexOf('/')+1);  //get the file name
 
